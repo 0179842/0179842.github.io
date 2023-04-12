@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+    Nombre: Jorge Emmnuel López Monsiváis
+    Materia: Programación Web 1
+    Fecha:
+    Descripción:
+-->
+<html lang="es">
+    <head>
+        <title>Plantilla</title>
+        <meta charset="uft-8">
+        <meta name="author"content="Jorge Emmanuel López Monsiváis">
+        <meta name="revised" content=" ">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <hgroup>
+            <h1>Formularios WEB</h1>
+            <form>
+                <p>Formulario</p><br>WEB HTML5</p>
+                <label>Etiqueta (Label)</label>
+                <br><label>Control (Boton):</label><button>Aceptar</button>
+                <br><label>Control (Input: Texto): </label><input type="text">
+                <br><label>Control (Input: Contraseña):</label><input type="password">
+                <br><label>Control (Input: Oculto):</label><input type="hidden">
+                <br><label>Control (Input: Radio)</label><input type="radio">
+                <br><label>Control (Input: Verificación)</label><input type="checkbox">
+            </form>
+        </hgroup>
+        <hgroup>
+            <h3>Ejemplo de Uso</h3>
+            <form>
+                <p>Radio button sencillo</p>
+                <label>1.- ¿Se puede decir que HTML es un lenguaje snecillo?</label>
+                <br><intput type="radio">Verdadero</intput>
+                <br><intput type="radio">Falso</intput>
+            </form>
+        </hgroup>
+    </body>
+</html>

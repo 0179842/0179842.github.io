@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!----
+Nombre: Luis Angel Alonso Costilla
+Materia: Programacion Web 1
+Fecha: 9/05/23
+Descripcion: Funciones y Eventos
+-->
+<html lang="es">
+    <head>
+        <title>ejercicio_u3_06</title>
+        <meta charset="UTF-8">
+        <meta name="autor" content="Luis Angel Alonso Costilla">
+        <meta name="revised" content="">
+        <meta name="description" content="for do,while">
+        <style>
+            .tit{background-color: black; color: aqua;}
+        </style>
+    </head>
+    <body onload="if(!confirm('Para poder acceder debes aceptar las cookies del sitio...')) window.location = 'https://www.google.com/';"
+    onunload="alert('Hasta la vista...');">
+        
+        <!---4.2.1.15 Bucles - Tareas-->
+        <h1 class="tit">JavaScript - Funciones & Eventos</h1>
+        <h2>contenido en una etiqueta</h2>
+        <button onclick="document.body.style.backgroundColor = 'lightblue';" ondblclick="document.body.style.backgroundColor = 'lightgreen'">cambia de color...</button>
+        <h2>JavaScript contenido en una funcion</h2>
+        <button id="btncolor">Cambiar de color</button>
+        <button id="btnsaludar">Saludar</button>
+        <script>
+            let button = document.getElementById("btncolor");
+            function funColor_A(){
+                document.body.style.backgroundColor = 'red'
+            }
+            function funColor_B(){
+                document.body.style.backgroundColor = 'pink'
+            }
+            button.addEventListener('click',funColor_A);
+            button.addEventListener('dblclick',funColor_B);
+            /*Modo Avanzado*/
+            document.getElementById("btnsaludar").addEventListener('click',() => {
+                alert("Hola a todos!!!");
+            });
+        </script>
+
+        <h2>Eventos del mouse</h2>
+
+        <p style="background-color:  aquamarine;" onmouseover="alert('Acabas de entrar al parrafo..');"
+        onmouseout="alert('Acabas de salir al parrafo..');" onclick="console.log('Presionaste el parrafo...');">
+            Puedes pasar por encima del parafo, salir del parrafo... <br>
+            O hacer click sobre el parrafo...
+        </p>
+        
+        <h2>Formulario con JavaScript</h2>
+        <label for="">Nombre: </label>
+        <input type="text" placeholder="(Nombre)" id="varNombre"> 
+        <input type="button" value="Accion" id="" onclick="let varMensaje = 'Hola como estas???'
+        document.getElementById('varResultado').value=varMensaje;">
+        <br>
+        <label for="">Resultados: </label>
+        <input type="text" placeholder="(Resulultado)" id="varResultado" readonly>
+
+        <h2>Tabla de Superficie y Volumen</h2>
+
+        <table border="5">
+            <tr>
+                <th>Figura</th>
+                <th>Datos</th>
+                <th>Resultados</th>
+            </tr>
+            <tr>
+                <td rowspan="2">Rectangulo</td>
+                <td>Base: <input type="number" id="varBase"></td>
+                <td rowspan="2">Area
+                    <input type="number" id="varArea" readonly>
+                    <input type="button" value="Calcular" onclick="document.getElementById('varArea').value=document.getElementById('varBase').value* document.getElementById('varAltura').value;">
+                </td>
+            </tr>
+            <tr>
+                <td>Altura: <input type="number" id="varAltura"></td>
+            </tr>
+            <tr>
+                <td>Prisma</td>
+                <td>Profundidad: <input type="number" id="varProfundidad"></td>
+                <td>Volumen:
+                    <input type="number" id="varVolumen" readonly>
+                    <input type="button" value="Calcular" onclick="document.getElementById('varArea').value=document.getElementById('varBase').value* document.getElementById('varAltura').value;document.getElementById('varVolumen').value=document.getElementById('varAltura').value * document.getElementById('varProfundidad').value*document.getElementById('varBase').value;">
+                </td>
+            </tr>
+            <tr>
+                <td>Cuadro</td>
+                <td rowspan="2">Arista: <input type="number" id="varArista"></td>
+                <td>Area <input type="number" id="varAreaPrisma" readonly>
+                <input type="button" value="calcular" onclick="document.getElementById('varAreaPrisma').value = document.getElementById('varArista').value **2"></td>
+            </tr>
+            <tr>
+                <td>Cubo</td>
+                <td>Voluemn: <input type="number" id="varVolumenPrisma" readonly></td>
+            </tr>
+        </table>
+
+        <h2>GeoLocalizacion</h2>
+
+        <button onclick="getLocation()">Obtener Cordenadas</button>
+        <p id="data"></p>
+        <p id="map"></p>
+        <script>
+            function getLocation(){
+                if(navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }else{
+                    alert("GeoLocation no soportado por su navegador...");
+                }
+            }
+
+            function showPosition(position){
+                document.getElementById("data").innerHTML = " Latitud" + position.coords.latitude;
+                document.getElementById("data").innerHTML += "<br>Longuitud" + position.coords.longitude;
+                var latlon = position.coords.latitude + "," + position.coords.longitud;
+                latlon = ' 22.122246,-100.984250';
+                var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg";
+                document.getElementById("map").innerHTML = "<img src = '" + img_url + "'>";
+    
+            }
+        </script>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3696.0952796655934!2d-100.98682832579532!3d22.12234264932438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842a9f5412c6b56f%3A0xe1b3dea4c6aa1c03!2sUniversidad%20Polit%C3%A9cnica%20de%20San%20Luis%20Potos%C3%AD!5e0!3m2!1ses-419!2smx!4v1684348520565!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+        <h2>Almacenamiento</h2>
+        <button onclick="aumentaContador_1()">Contador No. 1</button><br>
+        <label for="">Contador No.1</label>
+        <input type="number" readonly id="varContador_1" placeholder="Contador No. 1">
+        <br>
+        <button onclick="aumentaContador_2()">Contador No. 2</button><br>
+        <label for="">Contador No.2</label>
+        <input type="number" readonly id="varContador_2" placeholder="Contador No. 2">
+
+        <script>
+            function aumentaContador_1(){
+                if(typeof(Storage) != "Undefine"){
+                if(localStorage.aumentaContador_1){localStorage.aumentaContador_1++;}
+                else{localStorage.aumentaContador_1 = 1;}
+                document.getElementById('varContador_1').value = localStorage.aumentaContador_1;
+                }else{
+                alert("Almacenamieto no soportado por el navegador...");
+                }
+            }
+
+            function aumentaContador_2(){
+                if(Storage != "Undefine"){
+                    if(sessionStorage.aumentaContador_2){sessionStorage.aumentaContador_2++;}
+                    else{sessionStorage.aumentaContador_2 = 1;}
+                    document.getElementById('varContador_2').value = sessionStorage.aumentaContador_2;
+                }else{
+                    alert("Almacenamiento no soportado por el navegador...");
+                }
+            }
+            
+        </script>
+
+    </body>
+</html>

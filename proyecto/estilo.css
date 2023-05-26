@@ -1,0 +1,15 @@
+p{ background-color: darkseagreen;}
+body{background-color: lightgray;}
+h1{text-align: center;}
+button{
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: transparent;
+  border-radius: 0px;
+  border: 2px solid #EDD8D8;}
+button:hover{
+  color: #EDD8D8;
+  background-color: transparent;}
